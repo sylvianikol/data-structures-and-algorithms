@@ -7,16 +7,16 @@ public class Main {
 
         for (int firstUnsortedIndex = 1; firstUnsortedIndex < array.length; firstUnsortedIndex++) {
 
-            int newElement = array[firstUnsortedIndex];
+            int element = array[firstUnsortedIndex];
 
-            int i = firstUnsortedIndex;
+            int index = firstUnsortedIndex;
 
-            while (i > 0 && array[i - 1] > newElement) {
-                array[i] = array[i - 1];
-                --i;
+            while (index > 0 && array[index - 1] > element) {
+                array[index] = array[index - 1];
+                --index;
             }
 
-            array[i] = newElement;
+            array[index] = element;
         }
 
         for (int i : array) {
