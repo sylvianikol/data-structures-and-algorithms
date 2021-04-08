@@ -38,7 +38,7 @@ public class Main {
         for (int j = 1; j < radix; j++) {
             countArray[j] += countArray[j - 1];
         }
-
+        
         int[] temp = new int[numItems];
         for (int tempIndex = numItems - 1; tempIndex >= 0; tempIndex--) {
             int index = --countArray[getDigit(position, array[tempIndex], radix)];

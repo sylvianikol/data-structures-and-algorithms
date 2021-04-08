@@ -20,7 +20,38 @@ public class Main {
     //       '####'
     public static void main(String[] args) {
 
-        steps(4);
+        recursiveSteps(4, 1);
+    }
+
+    private static void recursiveSteps(int n, int repeat) {
+
+        if (n == 0) {
+            return;
+        }
+
+        for (int i = 0; i < repeat; i++) {
+            System.out.print("#");
+        }
+
+        System.out.print(" ");
+        System.out.println();
+
+        recursiveSteps(n - 1, repeat + 1);
+
+    }
+
+    private static void iterativeSteps(int n) {
+
+        for (int row = 0; row < n; row++) {
+            for (int col = 0; col < n; col++) {
+                if (col <= row) {
+                    System.out.print("#");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
     }
 
     private static void steps(int n) {
