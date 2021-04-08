@@ -2,10 +2,11 @@ package com.syn;
 
 public class Main {
 
+    // Check if given Integer is palindrome or not.
+    // You can use divide by 10 to reduce the number and modulus 10 to get the last digit.
+    // This trick is used to solve this problem.
+
     public static void main(String[] args) {
-        // Check if given Integer is palindrome or not.
-        // You can use divide by 10 to reduce the number and modulus 10 to get the last digit.
-        // This trick is used to solve this problem.
 
         int n = 1001;
         System.out.println(isPalindrome(n));
