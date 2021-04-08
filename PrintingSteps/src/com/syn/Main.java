@@ -58,6 +58,7 @@ public class Main {
     private static void steps(int n) {
 
         for (int i = 1; i <= n; i++) {
+
             String step = i == n
                     ? "#".repeat(i)
                     : "#".repeat(i) + " ";
