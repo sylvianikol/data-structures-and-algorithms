@@ -16,26 +16,10 @@ public class Main {
     }
 
     private static boolean isPalindrome(String input) {
-
-        if (input.length() == 1) {
-            return true;
-        }
-
-        return recursiveReverse(input).equals(input);
+        return iterativeReverse(input).equals(input);
     }
 
-    public static String iterativeReverse(String input) {
-        char[] letters = input.toCharArray();
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = letters.length - 1; i >= 0; i--) {
-            sb.append(letters[i]);
-        }
-
-        return sb.toString();
-    }
-
-    public static String recursiveReverse(String input) {
+    private static String recursiveReverse(String input) {
 
         if (input == null || input.isEmpty()) {
             return input;
@@ -43,5 +27,21 @@ public class Main {
 
         return input.charAt(input.length() - 1)
                 + recursiveReverse(input.substring(0, input.length() - 1));
+    }
+
+    private static String iterativeReverse(String input) {
+
+        if (input == null || input.isEmpty()) {
+            return input;
+        }
+
+        char[] symbols = input.toCharArray();
+        StringBuilder reversed = new StringBuilder();
+
+        for (int i = symbols.length - 1; i >= 0; i--) {
+            reversed.append(symbols[i]);
+        }
+
+        return reversed.toString();
     }
 }
