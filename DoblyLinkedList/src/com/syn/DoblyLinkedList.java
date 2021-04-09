@@ -41,17 +41,13 @@ public class DoblyLinkedList {
 
         Node node = head;
 
-        if (size == 1) {
+        if (head.getNext() == null) {
             tail = null;
-            head = null;
         } else {
-            head = head.getNext();
+            head.getNext().setPrev(null);
         }
 
-        if (head != null) {
-            head.setPrev(null);
-        }
-
+        head = head.getNext();
         size--;
         return node;
     }
