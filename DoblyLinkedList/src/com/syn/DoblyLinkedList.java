@@ -40,6 +40,18 @@ public class DoblyLinkedList {
         size++;
     }
 
+    public Node removeFirst() {
+        Node node = head;
+
+        head = head.getNext();
+
+        if (head != null) {
+            head.setPrev(null);
+        }
+
+        return node;
+    }
+
     public boolean isEmpty() {
         return head == null;
     }
