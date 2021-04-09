@@ -35,6 +35,10 @@ public class DoblyLinkedList {
     }
 
     public Node removeFirst() {
+        if (isEmpty()) {
+            return null;
+        }
+
         Node node = head;
 
         if (size == 1) {
@@ -53,6 +57,10 @@ public class DoblyLinkedList {
     }
 
     public Node removeLast() {
+        if (isEmpty()) {
+            return null;
+        }
+
         Node node = tail;
 
         if (size == 1) {
