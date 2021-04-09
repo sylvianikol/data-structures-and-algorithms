@@ -43,12 +43,36 @@ public class DoblyLinkedList {
     public Node removeFirst() {
         Node node = head;
 
-        head = head.getNext();
+        if (size == 1) {
+            tail = null;
+            head = null;
+        } else {
+            head = head.getNext();
+        }
 
         if (head != null) {
             head.setPrev(null);
         }
 
+        size--;
+        return node;
+    }
+
+    public Node removeLast() {
+        Node node = tail;
+
+        if (size == 1) {
+            head = null;
+            tail = null;
+        } else {
+            tail = tail.getPrev();
+        }
+
+        if (tail != null) {
+            tail.setNext(null);
+        }
+
+        size--;
         return node;
     }
 
