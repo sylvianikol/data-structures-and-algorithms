@@ -8,14 +8,11 @@ public class DoblyLinkedList {
 
     public void addToFront(int data) {
         Node node = new Node(data);
+        node.setNext(head);
 
         if (isEmpty()) {
             tail = node;
-        } else if (size == 1) {
-            node.setNext(head);
-            tail.setPrev(node);
         } else {
-            node.setNext(head);
             head.setPrev(node);
         }
 
@@ -25,14 +22,11 @@ public class DoblyLinkedList {
 
     public void addToEnd(int data) {
         Node node = new Node(data);
+        node.setPrev(tail);
 
         if (isEmpty()) {
             head = node;
-        } else if (size == 1) {
-            node.setPrev(tail);
-            head.setNext(node);
         } else {
-            node.setPrev(tail);
             tail.setNext(node);
         }
 

@@ -16,8 +16,8 @@ public class Main {
 
         list.print();
 //        list.removeFirst();
-        list.removeLast();
-        list.print();
+//        list.removeLast();
+//        list.print();
 
 //        list.reversePrint();
     }
