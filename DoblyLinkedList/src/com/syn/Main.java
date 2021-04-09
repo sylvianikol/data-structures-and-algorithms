@@ -14,7 +14,7 @@ public class Main {
         list.addToEnd(2);
         list.addToEnd(3);
 
-        list.addBefore(new Node(9), new Node(2));
+        System.out.println(list.addBefore(new Node(9), new Node(2)));
 
 //        list.print();
 //        list.removeFirst();

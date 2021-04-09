@@ -34,12 +34,12 @@ public class DoblyLinkedList {
         size++;
     }
 
-    public void addBefore(Node newNode, Node existingNode) {
+    public boolean addBefore(Node newNode, Node existingNode) {
         Node current = get(existingNode);
 
         if (size == 1) {
             addToFront(existingNode.getData());
-            return;
+            return true;
         }
 
         if (current != null) {
@@ -51,7 +51,10 @@ public class DoblyLinkedList {
 
             current.setPrev(newNode);
             size++;
+            return true;
         }
+
+        return false;
     }
 
     public Node removeFirst() {
