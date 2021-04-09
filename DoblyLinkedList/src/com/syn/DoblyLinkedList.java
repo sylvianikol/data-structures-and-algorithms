@@ -23,6 +23,23 @@ public class DoblyLinkedList {
         size++;
     }
 
+    public void addToEnd(int data) {
+        Node node = new Node(data);
+
+        if (isEmpty()) {
+            head = node;
+        } else if (size == 1) {
+            node.setPrev(tail);
+            head.setNext(node);
+        } else {
+            node.setPrev(tail);
+            tail.setNext(node);
+        }
+
+        tail = node;
+        size++;
+    }
+
     public boolean isEmpty() {
         return head == null;
     }

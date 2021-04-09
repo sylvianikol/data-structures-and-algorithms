@@ -6,9 +6,13 @@ public class Main {
 
         DoblyLinkedList list = new DoblyLinkedList();
 
-        list.addToFront(3);
-        list.addToFront(2);
-        list.addToFront(1);
+//        list.addToFront(3);
+//        list.addToFront(2);
+//        list.addToFront(1);
+
+        list.addToEnd(1);
+        list.addToEnd(2);
+        list.addToEnd(3);
 
         list.print();
         list.reversePrint();
