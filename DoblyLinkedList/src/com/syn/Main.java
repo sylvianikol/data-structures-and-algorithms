@@ -14,10 +14,12 @@ public class Main {
         list.addToEnd(2);
         list.addToEnd(3);
 
-        list.print();
+        list.addBefore(new Node(9), new Node(2));
+
+//        list.print();
 //        list.removeFirst();
 //        list.removeLast();
-//        list.print();
+        list.print();
 
 //        list.reversePrint();
     }

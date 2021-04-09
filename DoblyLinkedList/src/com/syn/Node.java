@@ -1,5 +1,7 @@
 package com.syn;
 
+import java.util.Objects;
+
 public class Node {
 
     private int data;

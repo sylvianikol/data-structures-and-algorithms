@@ -34,6 +34,26 @@ public class DoblyLinkedList {
         size++;
     }
 
+    public void addBefore(Node newNode, Node existingNode) {
+        Node current = get(existingNode);
+
+        if (size == 1) {
+            addToFront(existingNode.getData());
+            return;
+        }
+
+        if (current != null) {
+            newNode.setNext(current);
+            newNode.setPrev(current.getPrev());
+            if (current.getPrev() != null) {
+                current.getPrev().setNext(newNode);
+            }
+
+            current.setPrev(newNode);
+            size++;
+        }
+    }
+
     public Node removeFirst() {
         if (isEmpty()) {
             return null;
@@ -72,6 +92,18 @@ public class DoblyLinkedList {
         node.setPrev(null);
 
         return node;
+    }
+
+    public Node get(Node node) {
+        Node current = head;
+        while (current != null) {
+            if (current.getData() == node.getData()) {
+                return current;
+            }
+            current = current.getNext();
+        }
+
+        return null;
     }
 
     public boolean isEmpty() {
