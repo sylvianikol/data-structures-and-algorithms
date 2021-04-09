@@ -24,6 +24,30 @@ public class SinglyLinkedList {
         ++size;
     }
 
+    public boolean insertSorted(int data) {
+        if (isEmpty()) {
+            addToFront(data);
+            return true;
+        }
+
+        Node node = new Node(data);
+        Node current = head;
+
+        while (current != null) {
+            if (node.getData() >= current.getData()) {
+                if (current.getNext() != null) {
+                    node.setNext(current.getNext());
+                }
+                current.setNext(node);
+
+                return true;
+            }
+            current = current.getNext();
+        }
+
+        return false;
+    }
+
     public Node removeFromFront() {
         if (isEmpty()) {
             return null;
