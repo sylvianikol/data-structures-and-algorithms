@@ -49,6 +49,8 @@ public class DoblyLinkedList {
 
         head = head.getNext();
         size--;
+        node.setNext(null);
+
         return node;
     }
 
@@ -59,18 +61,16 @@ public class DoblyLinkedList {
 
         Node node = tail;
 
-        if (size == 1) {
+        if (tail.getPrev() == null) {
             head = null;
-            tail = null;
         } else {
-            tail = tail.getPrev();
+            tail.getPrev().setNext(null);
         }
 
-        if (tail != null) {
-            tail.setNext(null);
-        }
-
+        tail = tail.getPrev();
         size--;
+        node.setPrev(null);
+
         return node;
     }
 
