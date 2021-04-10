@@ -18,13 +18,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println(memoizedFibonacci(4));
+        System.out.println(memoizedFibonacci(9));
     }
 
     private static int memoizedFibonacci(int n) {
-        if (n == 0 || n == 1) {
-            return n;
-        }
 
         if (existing.containsKey(n)) {
             return existing.get(n);
