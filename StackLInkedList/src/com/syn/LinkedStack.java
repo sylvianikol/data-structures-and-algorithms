@@ -15,10 +15,11 @@ public class LinkedStack {
         data.push(value);
     }
 
+    public Integer pop() {
+        return data.pop();
+    }
+
     public Integer peek() {
-        if (data.isEmpty()) {
-            throw new EmptyStackException();
-        }
         return data.peek();
     }
 
