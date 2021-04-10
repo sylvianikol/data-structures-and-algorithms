@@ -31,7 +31,6 @@ public class SinglyLinkedList {
             return;
         }
 
-        Node node = new Node(data);
         Node current = head.getNext();
         Node prev = head;
 
@@ -40,6 +39,7 @@ public class SinglyLinkedList {
             current = current.getNext();
         }
 
+        Node node = new Node(data);
         prev.setNext(node);
         node.setNext(current);
         size++;
