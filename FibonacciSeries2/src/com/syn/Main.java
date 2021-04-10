@@ -14,9 +14,25 @@ public class Main {
     // Example:
     //   fib(4) === 3
 
+    private static Map<Integer, Integer> existing = new HashMap<>();
+
     public static void main(String[] args) {
 
-        System.out.println(iterativeFibonacci(9));
+        System.out.println(memoizedFibonacci(4));
+    }
+
+    private static int memoizedFibonacci(int n) {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+
+        if (existing.containsKey(n)) {
+            return existing.get(n);
+        }
+
+        int value = recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
+        existing.put(n, value);
+        return value;
     }
 
     private static int iterativeFibonacci(int n) {
