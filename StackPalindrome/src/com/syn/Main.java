@@ -11,10 +11,12 @@ public class Main {
     // "I did, did I?" -> true
     // "Racecar" -> true
     // "Hello" -> false
+    // "Don't nod" -> true
+    // "Was it a car or a cat I saw?" -> true
 
     public static void main(String[] args) {
 
-        String input = "Hello";
+        String input = "Don't nod";
         System.out.println(isPalindrome(clean(input).toLowerCase()));
     }
 
