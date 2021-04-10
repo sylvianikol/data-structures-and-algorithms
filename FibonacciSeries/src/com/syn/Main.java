@@ -51,16 +51,15 @@ public class Main {
         return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
     }
 
-    // memoization solution
+    // memoized solution
     public static int memoizedFibonacci(int n) {
-        Integer fn = existingNumbers.get(n);
 
-        if (fn != null) {
-            return fn;
+        if (existingNumbers.containsKey(n)) {
+            return existingNumbers.get(n);
         }
 
-        fn = recursiveFibonacci(n);
-        existingNumbers.put(n, fn);
-        return fn;
+        int value = recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
+        existingNumbers.put(n, value);
+        return value;
     }
 }
