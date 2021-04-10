@@ -24,28 +24,29 @@ public class SinglyLinkedList {
         ++size;
     }
 
-    public boolean insertSorted(int data) {
-        if (isEmpty()) {
+    public void insertSorted(int data) {
+
+        if (isEmpty() || head.getData() >= data) {
             addToFront(data);
-            return true;
+            return;
         }
 
         Node node = new Node(data);
-        Node current = head;
+        Node current = head.getNext();
+        Node prev = head;
 
         while (current != null) {
-            if (node.getData() >= current.getData()) {
-                if (current.getNext() != null) {
-                    node.setNext(current.getNext());
-                }
-                current.setNext(node);
-
-                return true;
+            if (current.getData() >= data) {
+                prev.setNext(node);
+                node.setNext(current);
+                size++;
+                return;
             }
             current = current.getNext();
+            prev = prev.getNext();
         }
 
-        return false;
+        prev.setNext(node);
     }
 
     public Node removeFromFront() {

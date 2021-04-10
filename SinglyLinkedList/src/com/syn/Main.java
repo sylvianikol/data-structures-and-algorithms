@@ -8,9 +8,13 @@ public class Main {
 
 //        list.addToFront(5);
 //        list.addToFront(3);
-        list.addToFront(1);
+//        list.addToFront(1);
 
-        System.out.println(list.insertSorted(5));
+        list.insertSorted(5);
+        list.insertSorted(1);
+        list.insertSorted(0);
+        list.insertSorted(52);
+        list.insertSorted(3);
 
         list.print();
 //        System.out.println(list.getSize());
