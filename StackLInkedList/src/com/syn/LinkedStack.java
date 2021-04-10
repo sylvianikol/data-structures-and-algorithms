@@ -2,6 +2,7 @@ package com.syn;
 
 import java.util.EmptyStackException;
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class LinkedStack {
 
@@ -25,5 +26,9 @@ public class LinkedStack {
 
     public boolean isEmpty() {
         return data.isEmpty();
+    }
+
+    public void print() {
+        data.forEach(System.out::println);
     }
 }
