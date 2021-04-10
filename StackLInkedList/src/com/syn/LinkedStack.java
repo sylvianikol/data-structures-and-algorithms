@@ -9,4 +9,9 @@ public class LinkedStack {
     public LinkedStack() {
         this.data = new LinkedList<>();
     }
+
+    public void push(int value) {
+        data.push(value);
+    }
+
 }
