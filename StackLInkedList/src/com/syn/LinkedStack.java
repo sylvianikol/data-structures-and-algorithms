@@ -23,4 +23,7 @@ public class LinkedStack {
         return data.peek();
     }
 
+    public boolean isEmpty() {
+        return data.isEmpty();
+    }
 }
