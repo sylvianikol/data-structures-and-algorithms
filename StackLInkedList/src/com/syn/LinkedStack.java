@@ -1,5 +1,6 @@
 package com.syn;
 
+import java.util.EmptyStackException;
 import java.util.LinkedList;
 
 public class LinkedStack {
@@ -12,6 +13,13 @@ public class LinkedStack {
 
     public void push(int value) {
         data.push(value);
+    }
+
+    public Integer peek() {
+        if (data.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return data.peek();
     }
 
 }
