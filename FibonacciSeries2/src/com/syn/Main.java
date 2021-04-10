@@ -1,5 +1,8 @@
 package com.syn;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
     // --- Directions
     // Print out the n-th entry in the fibonacci series.
@@ -10,9 +13,30 @@ public class Main {
     // forms the first ten entries of the fibonacci series.
     // Example:
     //   fib(4) === 3
+
     public static void main(String[] args) {
 
-        System.out.println(recursiveFibonacci(4));
+        System.out.println(iterativeFibonacci(9));
+    }
+
+    private static int iterativeFibonacci(int n) {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+
+        int first = 0;
+        int second = 1;
+        int current = 2;
+        int fib = 0;
+
+        while (current <= n) {
+            fib = first + second;
+            first = second;
+            second = fib;
+            current++;
+        }
+
+        return fib;
     }
 
     private static int recursiveFibonacci(int n) {
