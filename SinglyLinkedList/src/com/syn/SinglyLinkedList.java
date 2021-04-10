@@ -35,18 +35,14 @@ public class SinglyLinkedList {
         Node current = head.getNext();
         Node prev = head;
 
-        while (current != null) {
-            if (current.getData() >= data) {
-                prev.setNext(node);
-                node.setNext(current);
-                size++;
-                return;
-            }
+        while (current != null && current.getData() < data) {
+            prev = current;
             current = current.getNext();
-            prev = prev.getNext();
         }
 
         prev.setNext(node);
+        node.setNext(current);
+        size++;
     }
 
     public Node removeFromFront() {
