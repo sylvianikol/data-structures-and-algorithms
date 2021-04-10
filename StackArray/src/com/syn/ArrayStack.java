@@ -6,11 +6,11 @@ import java.util.EmptyStackException;
 
 public class ArrayStack {
 
-    private int[] data;
+    private Integer[] data;
     private int top;
 
     public ArrayStack(int capacity) {
-        this.data = new int[capacity];
+        this.data = new Integer[capacity];
     }
 
     public void push(int value) {
@@ -25,11 +25,13 @@ public class ArrayStack {
         if (isEmpty()) {
             throw new EmptyStackException();
         }
-        return data[--top];
+        int value = data[--top];
+        data[top] = null;
+        return value;
     }
 
     private void resize() {
-        int[] newArray = new int[2 * data.length];
+        Integer[] newArray = new Integer[2 * data.length];
         System.arraycopy(data, 0, newArray, 0, data.length);
         data = newArray;
     }
