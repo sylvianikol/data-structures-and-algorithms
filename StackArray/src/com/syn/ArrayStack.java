@@ -21,13 +21,22 @@ public class ArrayStack {
         top++;
     }
 
-    public int pop() {
+    public Integer pop() {
         if (isEmpty()) {
             throw new EmptyStackException();
         }
-        int value = data[--top];
+
+        Integer value = data[--top];
         data[top] = null;
         return value;
+    }
+
+    public Integer peek() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+
+        return data[top - 1];
     }
 
     private void resize() {
