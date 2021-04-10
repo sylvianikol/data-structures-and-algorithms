@@ -2,6 +2,7 @@ package com.syn;
 
 import org.w3c.dom.Node;
 
+import java.util.Arrays;
 import java.util.EmptyStackException;
 
 public class ArrayStack {
@@ -51,5 +52,11 @@ public class ArrayStack {
 
     public boolean isEmpty() {
         return top == 0;
+    }
+
+    public void print() {
+        for (int i = top - 1; i >= 0; i--) {
+            System.out.println(data[i]);
+        }
     }
 }
