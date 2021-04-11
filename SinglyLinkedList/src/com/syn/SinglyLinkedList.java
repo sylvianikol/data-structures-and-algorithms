@@ -1,5 +1,7 @@
 package com.syn;
 
+import java.util.EmptyStackException;
+
 public class SinglyLinkedList {
 
     private Node head;
@@ -55,6 +57,26 @@ public class SinglyLinkedList {
         node.setNext(null);
         --size;
         return node;
+    }
+
+    public Node getMiddle() {
+        if (isEmpty()) {
+            return null;
+        }
+
+        if (size == 1 || size == 2) {
+            return head;
+        }
+
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.getNext() != null) {
+            slow = slow.getNext();
+            fast = fast.getNext().getNext();
+        }
+
+        return slow;
     }
 
     public void print() {
