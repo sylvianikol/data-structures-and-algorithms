@@ -18,7 +18,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println(memoizedFibonacci(9));
+        System.out.println(memoizedFibonacci(25));
+        System.out.println();
     }
 
     private static int memoizedFibonacci(int n) {
