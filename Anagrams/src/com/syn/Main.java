@@ -15,10 +15,10 @@ public class Main {
     //   anagrams('Hi there', 'Bye there') --> False
     public static void main(String[] args) {
 
-        System.out.println(anagrams("RAIL! SAFETY!", "fairy tales"));
+        System.out.println(isAnagram("Hi there", "Bye there"));
     }
 
-    private static boolean anagrams(String s1, String s2) {
+    private static boolean isAnagram(String s1, String s2) {
         String first = clean(s1).toLowerCase();
         String second = clean(s2).toLowerCase();
 
@@ -26,15 +26,39 @@ public class Main {
             return false;
         }
 
-        Map<Character, Integer> firstCharCounter = countChars(first);
-        Map<Character, Integer> secondCharCounter = countChars(second);
+        int[] charCounter = new int[256];
 
-        if (firstCharCounter.size() != secondCharCounter.size()) {
-            return false;
+        for (int i = 0; i < first.length(); i++) {
+            charCounter[first.charAt(i)]++;
+            charCounter[second.charAt(i)]--;
         }
 
-        return firstCharCounter.equals(secondCharCounter);
+        for (int c : charCounter) {
+            if (c != 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
+
+//    private static boolean isAnagram(String s1, String s2) {
+//        String first = clean(s1).toLowerCase();
+//        String second = clean(s2).toLowerCase();
+//
+//        if (first.length() != second.length()) {
+//            return false;
+//        }
+//
+//        Map<Character, Integer> firstCharCounter = countChars(first);
+//        Map<Character, Integer> secondCharCounter = countChars(second);
+//
+//        if (firstCharCounter.size() != secondCharCounter.size()) {
+//            return false;
+//        }
+//
+//        return firstCharCounter.equals(secondCharCounter);
+//    }
 
     private static String clean(String input) {
         return input.replaceAll("[^A-Za-z]", "");
