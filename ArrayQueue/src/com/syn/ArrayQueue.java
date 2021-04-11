@@ -38,6 +38,8 @@ public class ArrayQueue {
         if (size() == 0) {
             front = 0;
             back = 0;
+        } else if (front == data.length) {
+            front = 0;
         }
 
         return value;
