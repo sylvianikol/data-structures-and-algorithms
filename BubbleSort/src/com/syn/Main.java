@@ -5,7 +5,6 @@ public class Main {
     public static void main(String[] args) {
 
         int[] array = { 20, 35, -15, 7, 55, 1, -22 };
-        int[] arr = { 5, 9, 3, 9, 8, 4 };
 
         for (int i = 0; i < array.length; i++) {
 
@@ -16,8 +15,8 @@ public class Main {
             }
         }
 
-        for (int i = 0; i < array.length; i++) {
-            System.out.printf("%d ", array[i]);
+        for (int j : array) {
+            System.out.printf("%d ", j);
         }
     }
 
