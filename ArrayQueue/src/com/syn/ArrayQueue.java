@@ -74,9 +74,20 @@ public class ArrayQueue {
     }
 
     public void print() {
-        for (int i = front; i < back; i++) {
-            System.out.print(data[i] + " ");
+        if (front <= back) {
+            for (int i = front; i < back; i++) {
+                System.out.print(data[i] + " ");
+            }
+        } else {
+            for (int i = front; i < data.length; i++) {
+                System.out.print(data[i] + " ");
+            }
+
+            for (int i = 0; i < back; i++) {
+                System.out.print(data[i] + " ");
+            }
         }
+
 
         System.out.println();
     }
