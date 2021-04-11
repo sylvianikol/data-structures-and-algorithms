@@ -79,6 +79,22 @@ public class SinglyLinkedList {
         return slow;
     }
 
+    public Node findNthFromEnd(int n) {
+        if (isEmpty() || size < n) {
+            return null;
+        }
+
+        Node last = getByIndex(n);
+        Node first = head;
+
+        while (last.getNext() != null) {
+            first = first.getNext();
+            last = last.getNext();
+        }
+
+        return first;
+    }
+
     public boolean isCircular() {
         if (isEmpty() || size == 1) {
             return false;
@@ -106,6 +122,21 @@ public class SinglyLinkedList {
             }
             current = current.getNext();
         }
+        return null;
+    }
+
+    public Node getByIndex(int index) {
+        int counter = 0;
+        Node current = head;
+
+        while (current != null) {
+            counter++;
+            if (counter == index) {
+                return current;
+            }
+            current = current.getNext();
+        }
+
         return null;
     }
 
