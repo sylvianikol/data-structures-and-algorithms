@@ -1,13 +1,15 @@
 package com.syn;
 
+import java.util.NoSuchElementException;
+
 public class ArrayQueue {
 
-    private int[] data;
+    private Integer[] data;
     private int front;
     private int back;
 
     public ArrayQueue(int capacity) {
-        this.data = new int[capacity];
+        this.data = new Integer[capacity];
     }
 
     public void add(int value) {
@@ -20,11 +22,24 @@ public class ArrayQueue {
     }
 
     public int remove() {
+        if (size() == 0) {
+            throw new NoSuchElementException();
+        }
 
+        Integer value = data[front];
+        data[front] = null;
+        front++;
+
+        if (size() == 0) {
+            front = 0;
+            back = 0;
+        }
+
+        return value;
     }
 
     private void resize() {
-        int[] newData = new int[2 * data.length];
+        Integer[] newData = new Integer[2 * data.length];
         System.arraycopy(data, 0, newData, 0, data.length);
         data = newData;
     }
