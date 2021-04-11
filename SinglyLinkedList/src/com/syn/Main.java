@@ -9,7 +9,7 @@ public class Main {
 //        list.addToFront(5);
 //        list.addToFront(4);
 //        list.addToFront(3);
-//        list.addToFront(2);
+        list.addToFront(2);
         list.addToFront(1);
 
 //        list.insertSorted(5);

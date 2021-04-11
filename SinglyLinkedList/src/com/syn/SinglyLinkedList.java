@@ -69,7 +69,7 @@ public class SinglyLinkedList {
         }
 
         Node slow = head;
-        Node fast = head;
+        Node fast = head.getNext();
 
         while (fast != null && fast.getNext() != null) {
             slow = slow.getNext();
