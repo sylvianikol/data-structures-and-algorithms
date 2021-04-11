@@ -67,7 +67,10 @@ public class ArrayQueue {
     }
 
     public int size() {
-        return back - front;
+        if (front <= back) {
+            return back - front;
+        }
+        return back - front + data.length;
     }
 
     public void print() {
