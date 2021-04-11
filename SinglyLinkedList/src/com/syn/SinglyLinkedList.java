@@ -79,6 +79,36 @@ public class SinglyLinkedList {
         return slow;
     }
 
+    public boolean isCircular() {
+        if (isEmpty() || size == 1) {
+            return false;
+        }
+
+        Node slow = head;
+        Node fast = head.getNext();
+
+        while (fast != null && fast.getNext() != null) {
+            slow = slow.getNext();
+            fast = fast.getNext().getNext();
+            if (fast.equals(slow)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public Node get(int data) {
+        Node current = head;
+        while (current != null) {
+            if (current.getData() == data) {
+                return current;
+            }
+            current = current.getNext();
+        }
+        return null;
+    }
+
     public void print() {
         Node node = head;
         while (node != null) {

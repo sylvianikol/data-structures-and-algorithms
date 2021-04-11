@@ -8,9 +8,16 @@ public class Main {
 
 //        list.addToFront(5);
 //        list.addToFront(4);
-//        list.addToFront(3);
+        list.addToFront(3);
         list.addToFront(2);
         list.addToFront(1);
+
+        Node first = list.get(1);
+//        Node second = list.get(2);
+        Node third = list.get(3);
+        third.setNext(first);
+
+        System.out.println(list.isCircular());
 
 //        list.insertSorted(5);
 //        list.insertSorted(1);
@@ -19,7 +26,7 @@ public class Main {
 //        list.insertSorted(3);
 
 //        list.print();
-        System.out.println(list.getMiddle());
+//        System.out.println(list.getMiddle());
 //        System.out.println(list.getSize());
 //        System.out.println(list.isEmpty());
 //
