@@ -38,6 +38,14 @@ public class ArrayQueue {
         return value;
     }
 
+    public int peek() {
+        if (size() == 0) {
+            throw new NoSuchElementException();
+        }
+
+        return data[front];
+    }
+
     private void resize() {
         Integer[] newData = new Integer[2 * data.length];
         System.arraycopy(data, 0, newData, 0, data.length);
