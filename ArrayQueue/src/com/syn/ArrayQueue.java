@@ -13,12 +13,17 @@ public class ArrayQueue {
     }
 
     public void add(int value) {
-        if (back == data.length) {
+        if (size() == data.length - 1) {
             resize();
         }
 
         this.data[back] = value;
-        back++;
+        if (back < data.length - 1) {
+            back++;
+        } else {
+            back = 0;
+        }
+
     }
 
     public int remove() {
@@ -47,9 +52,16 @@ public class ArrayQueue {
     }
 
     private void resize() {
+        int numItems = size();
         Integer[] newData = new Integer[2 * data.length];
-        System.arraycopy(data, 0, newData, 0, data.length);
+
+        System.arraycopy(data, front, newData, 0, data.length - front);
+        System.arraycopy(data, 0, newData, data.length - front, back);
+
         data = newData;
+
+        front = 0;
+        back = numItems;
     }
 
     public int size() {
@@ -57,10 +69,6 @@ public class ArrayQueue {
     }
 
     public void print() {
-        if (size() == 0) {
-            throw new NoSuchElementException();
-        }
-
         for (int i = front; i < back; i++) {
             System.out.print(data[i] + " ");
         }
