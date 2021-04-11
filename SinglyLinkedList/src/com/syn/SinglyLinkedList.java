@@ -114,10 +114,10 @@ public class SinglyLinkedList {
         return false;
     }
 
-    public Node get(int data) {
+    public Node getByValue(int value) {
         Node current = head;
         while (current != null) {
-            if (current.getData() == data) {
+            if (current.getData() == value) {
                 return current;
             }
             current = current.getNext();
