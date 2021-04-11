@@ -95,6 +95,22 @@ public class SinglyLinkedList {
         return first;
     }
 
+    public void reverse() {
+        Node current = head;
+        Node previous = null;
+        Node forward = null;
+
+        while (current.getNext() != null) {
+            forward = current.getNext();
+            current.setNext(previous);
+            previous = current;
+            current = forward;
+        }
+
+        head = current;
+        head.setNext(previous);
+    }
+
     public boolean isCircular() {
         if (isEmpty() || size == 1) {
             return false;

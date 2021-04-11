@@ -6,13 +6,19 @@ public class Main {
 
         SinglyLinkedList list = new SinglyLinkedList();
 
-//        list.addToFront(5);
-//        list.addToFront(4);
-//        list.addToFront(3);
+        list.addToFront(5);
+        list.addToFront(4);
+        list.addToFront(3);
         list.addToFront(2);
         list.addToFront(1);
 
-        System.out.println(list.findNthFromEnd(3));
+        list.print();
+
+        list.reverse();
+
+        list.print();
+
+//        System.out.println(list.findNthFromEnd(3));
 
 //        Node first = list.get(1);
 //        Node second = list.get(2);
