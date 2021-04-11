@@ -55,4 +55,16 @@ public class ArrayQueue {
     public int size() {
         return back - front;
     }
+
+    public void print() {
+        if (size() == 0) {
+            throw new NoSuchElementException();
+        }
+
+        for (int i = front; i < back; i++) {
+            System.out.print(data[i] + " ");
+        }
+
+        System.out.println();
+    }
 }
