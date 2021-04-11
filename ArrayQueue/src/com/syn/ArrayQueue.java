@@ -19,9 +19,17 @@ public class ArrayQueue {
         back++;
     }
 
+    public int remove() {
+
+    }
+
     private void resize() {
         int[] newData = new int[2 * data.length];
         System.arraycopy(data, 0, newData, 0, data.length);
         data = newData;
+    }
+
+    public int size() {
+        return back - front;
     }
 }
