@@ -39,7 +39,7 @@ public class ChainedHashTable {
         ListIterator<EmployeeNode> iter = hashTable[index].listIterator();
         EmployeeNode node = null;
 
-        int listIndex = 0;
+        int listIndex = -1;
         while (iter.hasNext()) {
             node = iter.next();
             listIndex++;
@@ -50,10 +50,10 @@ public class ChainedHashTable {
 
         if (node == null || !node.key.equals(key)) {
             return null;
+        } else {
+            hashTable[index].remove(listIndex);
+            return node.employee;
         }
-
-        hashTable[index].remove(listIndex);
-        return node.employee;
     }
 
     private int hash(String key) {
