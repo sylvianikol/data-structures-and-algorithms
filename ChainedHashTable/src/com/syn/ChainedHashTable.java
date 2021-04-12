@@ -1,6 +1,7 @@
 package com.syn;
 
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class ChainedHashTable {
 
@@ -16,6 +17,21 @@ public class ChainedHashTable {
     public void put(String key, Employee employee) {
         int index = hash(key);
         hashTable[index].add(new EmployeeNode(key, employee));
+    }
+
+    public Employee get(String key) {
+        int index = hash(key);
+        ListIterator<EmployeeNode> iter = hashTable[index].listIterator();
+        EmployeeNode node;
+
+        while (iter.hasNext()) {
+            node = iter.next();
+            if (node.key.equals(key)) {
+                return node.employee;
+            }
+        }
+
+        return null;
     }
 
     private int hash(String key) {
