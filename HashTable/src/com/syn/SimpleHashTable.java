@@ -1,17 +1,19 @@
 package com.syn;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class SimpleHashTable {
 
-    private Employee[] hashTable;
+    private EmployeeEntry[] hashTable;
 
     public SimpleHashTable() {
-        this.hashTable = new Employee[10];
+        this.hashTable = new EmployeeEntry[10];
     }
 
     public void put(String key, Employee employee) {
         int index = hash(key);
+
         if (isOccupied(index)) {
             int stopIndex = index;
 
@@ -25,16 +27,56 @@ public class SimpleHashTable {
                 index = (index + 1) % hashTable.length;
             }
         }
+
         if (isOccupied(index)) {
             System.out.println("Collision with employee at index " + index);
         } else {
-            hashTable[index] = employee;
+            hashTable[index] = new EmployeeEntry(key, employee);
         }
     }
 
     public Employee get(String key) {
+        int index = findIndex(key);
+        if (index == -1) {
+            return null;
+        }
+        return hashTable[index].employee;
+    }
+
+    public Employee remove(String key) {
+        int index = findIndex(key);
+        if (index == -1) {
+            return null;
+        }
+        Employee employee = hashTable[index].employee;
+        hashTable[index] = null;
+        return employee;
+    }
+
+    private int findIndex(String key) {
         int index = hash(key);
-        return hashTable[index];
+        if (hashTable[index] != null && hashTable[index].key.equals(key)) {
+            return index;
+        }
+
+        int stopIndex = index;
+
+        if (index == hashTable.length - 1) {
+            index = 0;
+        } else {
+            index++;
+        }
+
+        while (index != stopIndex
+                && hashTable[index] != null && !hashTable[index].key.equals(key)) {
+            index = (index + 1) % hashTable.length;
+        }
+
+        if (stopIndex == index) {
+            return -1;
+        }
+
+        return index;
     }
 
     private int hash(String key) {
@@ -46,6 +88,7 @@ public class SimpleHashTable {
     }
 
     public void print() {
-        Arrays.stream(hashTable).forEach(System.out::println);
+        Arrays.stream(hashTable)
+                .forEach(e -> System.out.println(e == null ? "empty" : e.employee));
     }
 }

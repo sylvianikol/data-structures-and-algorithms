@@ -19,6 +19,6 @@ public class Main {
 
         System.out.println("-".repeat(10));
         hashTable.print();
-//        System.out.println(hashTable.get("Alice"));
+        System.out.println(hashTable.get("John"));
     }
 }
