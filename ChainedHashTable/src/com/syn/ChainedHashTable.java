@@ -9,8 +9,8 @@ public class ChainedHashTable {
 
     public ChainedHashTable() {
         this.hashTable = new LinkedList[10];
-        for (LinkedList<EmployeeNode> list : hashTable) {
-            list = new LinkedList<>();
+        for (int i = 0; i < hashTable.length; i++) {
+            hashTable[i] = new LinkedList<>();
         }
     }
 
@@ -58,5 +58,21 @@ public class ChainedHashTable {
 
     private int hash(String key) {
         return key.length() % hashTable.length;
+    }
+
+    public void print() {
+        for (LinkedList<EmployeeNode> entry : hashTable) {
+            if (entry.isEmpty()) {
+                System.out.println("empty");
+            }
+
+            ListIterator<EmployeeNode> iter = entry.listIterator();
+            EmployeeNode node;
+
+            while (iter.hasNext()) {
+                node = iter.next();
+                System.out.println(node.employee);
+            }
+        }
     }
 }
