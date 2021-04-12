@@ -15,7 +15,7 @@ public class Main {
         while (step <= input.length()) {
             for (int i = 0; i < input.length(); i++) {
                 System.out.println(input.substring(i, i + step));
-                if (i + step == input.length()) {
+                if (i + step >= input.length()) {
                     break;
                 }
             }
