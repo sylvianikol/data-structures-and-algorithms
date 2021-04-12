@@ -66,12 +66,8 @@ public class ChainedHashTable {
                 System.out.println("empty");
             }
 
-            ListIterator<EmployeeNode> iter = entry.listIterator();
-            EmployeeNode node;
-
-            while (iter.hasNext()) {
-                node = iter.next();
-                System.out.println(node.employee);
+            for (EmployeeNode employeeNode : entry) {
+                System.out.println(employeeNode.employee);
             }
         }
     }
