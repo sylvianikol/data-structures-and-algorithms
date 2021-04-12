@@ -12,8 +12,21 @@ public class SimpleHashTable {
 
     public void put(String key, Employee employee) {
         int index = hash(key);
-        if (hashTable[index] != null) {
-            System.out.println("Collision at index " + index);
+        if (isOccupied(index)) {
+            int stopIndex = index;
+
+            if (index == hashTable.length - 1) {
+                index = 0;
+            } else {
+                index++;
+            }
+
+            while (isOccupied(index) && index != stopIndex) {
+                index = (index + 1) % hashTable.length;
+            }
+        }
+        if (isOccupied(index)) {
+            System.out.println("Collision with employee at index " + index);
         } else {
             hashTable[index] = employee;
         }
@@ -26,6 +39,10 @@ public class SimpleHashTable {
 
     private int hash(String key) {
         return key.length() % hashTable.length;
+    }
+
+    private boolean isOccupied(int index) {
+        return hashTable[index] != null;
     }
 
     public void print() {

@@ -18,7 +18,7 @@ public class Main {
         hashTable.put("John", john);
 
         System.out.println("-".repeat(10));
-//        hashTable.print();
-        System.out.println(hashTable.get("Alice"));
+        hashTable.print();
+//        System.out.println(hashTable.get("Alice"));
     }
 }
