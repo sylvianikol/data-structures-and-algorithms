@@ -4,7 +4,7 @@ public class Main {
     // For example: If input is “abb”  then output should be “a”, “b”,”b”, “ab”, “bb”, “abb”
     public static void main(String[] args) {
 
-        String input = "abbccdd";
+        String input = "abb";
         findAllSubstr(input);
     }
 
