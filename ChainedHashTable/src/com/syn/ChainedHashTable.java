@@ -34,6 +34,28 @@ public class ChainedHashTable {
         return null;
     }
 
+    public Employee remove(String key) {
+        int index = hash(key);
+        ListIterator<EmployeeNode> iter = hashTable[index].listIterator();
+        EmployeeNode node = null;
+
+        int listIndex = 0;
+        while (iter.hasNext()) {
+            node = iter.next();
+            listIndex++;
+            if (node.key.equals(key)) {
+               break;
+            }
+        }
+
+        if (node == null || !node.key.equals(key)) {
+            return null;
+        }
+
+        hashTable[index].remove(listIndex);
+        return node.employee;
+    }
+
     private int hash(String key) {
         return key.length() % hashTable.length;
     }
