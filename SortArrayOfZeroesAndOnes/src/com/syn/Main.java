@@ -10,16 +10,16 @@ public class Main {
     }
 
     private static void sort(int[] array) {
-        int ones = 0;
+        int countOnes = 0;
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 1) {
                 array[i] = 0;
-                ones++;
+                countOnes++;
             }
         }
 
-        for (int i = array.length - 1; i >= array.length - ones; i--) {
+        for (int i = array.length - 1; i >= array.length - countOnes; i--) {
             array[i] = 1;
         }
     }
