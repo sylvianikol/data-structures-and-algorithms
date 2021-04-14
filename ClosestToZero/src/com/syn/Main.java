@@ -1,11 +1,43 @@
 package com.syn;
 
 public class Main {
-    // Given array of +n and -n integers, find a pair whose sum is closest to zero in an array.
+
     public static void main(String[] args) {
 
-        int[] array = {1, 3, -5, 7, 8, 20, -40, 6};
-        findPairClosestToZero(array);
+        // 1. Given array of +n and -n integers, find a pair whose sum is closest to zero in an array.
+//        int[] array = {1, 3, -5, 7, 8, 20, -40, 6};
+//        findPairClosestToZero(array);
+
+        // 2. Given a sorted array and a number n, find the pair in array whose sum is closest to n
+        int number = 5;
+        int[] array = {-40, -5, 1, 3, 6, 7, 8, 20};
+
+        findPairClosestToN(array, number);
+    }
+
+    private static void findPairClosestToN(int[] array, int number) {
+        if (array.length < 2) {
+            return;
+        }
+
+        int closest = Integer.MAX_VALUE;
+        int first = 0;
+        int second = 0;
+
+        for (int i : array) {
+            for (int j : array) {
+                int pairSum = i + j;
+                int diff = Math.abs(number - pairSum);
+
+                if (diff < closest) {
+                    closest = diff;
+                    first = i;
+                    second = j;
+                }
+            }
+        }
+
+        System.out.println(first + " and " + second);
     }
 
     private static void findPairClosestToZero(int[] array) {
