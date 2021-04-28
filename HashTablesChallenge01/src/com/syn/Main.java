@@ -18,21 +18,22 @@ public class Main {
 
         employees.forEach(System.out::println);
 
-        Map<String, Employee> uniqueEmployees = new HashMap<>();
+        Map<Integer, Employee> employeeTable = new HashMap<>();
         List<Employee> duplicates = new LinkedList<>();
 
         for (Employee employee : employees) {
-            String employeeName = employee.getName();
-            if (uniqueEmployees.containsKey(employeeName)) {
+            int employeeId = employee.getId();
+            if (employeeTable.containsKey(employeeId)) {
                 duplicates.add(employee);
             } else {
-                uniqueEmployees.put(employeeName, employee);
+                employeeTable.put(employeeId, employee);
             }
         }
 
         employees.removeAll(duplicates);
         System.out.println("-".repeat(10));
         employees.forEach(System.out::println);
+
         // implement hash() method
 //        int[] nums = new int[10];
 //        int[] numsToAdd = { 59282, 43, 6894, 500, 99, -58 };
