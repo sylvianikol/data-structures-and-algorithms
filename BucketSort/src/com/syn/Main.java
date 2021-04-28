@@ -1,9 +1,6 @@
 package com.syn;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -52,7 +49,8 @@ public class Main {
         List<Integer>[] buckets = new List[10];
 
         for (int i = 0; i < buckets.length; i++) {
-            buckets[i] = new ArrayList<>();
+//            buckets[i] = new ArrayList<>();
+            buckets[i] = new LinkedList<>();
         }
 
         return buckets;
