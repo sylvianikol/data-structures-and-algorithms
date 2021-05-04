@@ -17,5 +17,8 @@ public class Main {
         tree.insert(32);
 
         tree.traverseInOrder();
+
+        Node node = tree.get(272);
+        System.out.println(node == null ? "Not found!" : node.getData());
     }
 }

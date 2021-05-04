@@ -6,6 +6,10 @@ public class Node {
     private Node left;
     private Node right;
 
+    public Node(int data) {
+        this.data = data;
+    }
+
     public void insert(int value) {
         if (value == data) {
             return;
@@ -26,6 +30,24 @@ public class Node {
         }
     }
 
+    public Node get(int value) {
+        if (value == data) {
+            return this;
+        }
+
+        if (value < data) {
+            if (left != null) {
+                return left.get(value);
+            }
+        } else {
+            if (right != null) {
+                return right.get(value);
+            }
+        }
+
+        return null;
+    }
+
     public void traverseInOrder() {
         // left -> root -> right
         if (left != null) {
@@ -37,10 +59,6 @@ public class Node {
         if (right != null) {
             right.traverseInOrder();
         }
-    }
-
-    public Node(int data) {
-        this.data = data;
     }
 
     public int getData() {
