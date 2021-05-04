@@ -6,26 +6,26 @@ public class Main {
 
         int[] array = { -22, -15, 1, 7, 20, 35, 55 };
 
-//        int index = recursiveFind(array, 20, 0, array.length - 1);
-        int index = iterativeFind(array, 1);
+        int index = recursiveFind(array, 20, 0, array.length);
+//        int index = iterativeFind(array, 1);
 
         System.out.println(index);
     }
 
     private static int recursiveFind(int[] array, int num, int start, int end) {
 
-        int middle = (start + end) / 2;
-
-        if (start == end && array[middle] != num) {
+        if (start >= end) {
             return -1;
         }
+
+        int middle = (start + end) / 2;
 
         if (array[middle] == num) {
             return middle;
         }
 
         if (array[middle] > num) {
-            return recursiveFind(array, num, start, middle - 1);
+            return recursiveFind(array, num, start, middle);
         }
 
         if (array[middle] < num) {
@@ -49,7 +49,7 @@ public class Main {
             }
 
             if (array[middle] > num) {
-                end = middle - 1;
+                end = middle;
             } else {
                 start = middle + 1;
             }
