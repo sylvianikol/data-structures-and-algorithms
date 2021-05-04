@@ -26,6 +26,19 @@ public class Node {
         }
     }
 
+    public void traverseInOrder() {
+        // left -> root -> right
+        if (left != null) {
+            left.traverseInOrder();
+        }
+
+        System.out.print(data + " ");
+
+        if (right != null) {
+            right.traverseInOrder();
+        }
+    }
+
     public Node(int data) {
         this.data = data;
     }
