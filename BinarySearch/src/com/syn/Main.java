@@ -7,7 +7,7 @@ public class Main {
         int[] array = { -22, -15, 1, 7, 20, 35, 55 };
 
 //        int index = recursiveFind(array, 20, 0, array.length - 1);
-        int index = iterativeFind(array, 55);
+        int index = iterativeFind(array, 1);
 
         System.out.println(index);
     }
@@ -38,9 +38,9 @@ public class Main {
     private static int iterativeFind(int[] array, int num) {
 
         int start = 0;
-        int end = array.length - 1;
+        int end = array.length;
 
-        while (start != end) {
+        while (start < end) {
 
             int middle = (start + end) / 2;
 
@@ -53,10 +53,6 @@ public class Main {
             } else {
                 start = middle + 1;
             }
-        }
-
-        if (array[start] == num) {
-            return start;
         }
 
         return -1;
