@@ -48,6 +48,22 @@ public class Node {
         return null;
     }
 
+    public int min() {
+        if (left == null) {
+            return data;
+        }
+
+        return left.min();
+    }
+
+    public int max() {
+        if (right == null) {
+            return data;
+        }
+
+        return right.max();
+    }
+
     public void traverseInOrder() {
         // left -> root -> right
         if (left != null) {

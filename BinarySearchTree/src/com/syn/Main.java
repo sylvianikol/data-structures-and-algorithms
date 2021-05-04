@@ -18,7 +18,13 @@ public class Main {
 
         tree.traverseInOrder();
 
-        Node node = tree.get(272);
+        Node node = tree.get(22);
         System.out.println(node == null ? "Not found!" : node.getData());
+
+        int min = tree.min();
+        System.out.println(min == Integer.MIN_VALUE ? "Tree is empty!" : min);
+
+        int max = tree.max();
+        System.out.println(max == Integer.MAX_VALUE ? "Tree is empty" : max);
     }
 }
