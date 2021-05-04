@@ -17,6 +17,12 @@ public class Node {
             } else {
                 left.insert(value);
             }
+        } else {
+            if (right == null) {
+                right = new Node(value);
+            } else {
+                right.insert(value);
+            }
         }
     }
 
