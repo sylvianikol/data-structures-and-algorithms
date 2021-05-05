@@ -20,6 +20,30 @@ public class Tree {
         return null;
     }
 
+    public void delete(int value) {
+        root = delete(root, value);
+    }
+
+    private Node delete(Node node, int value) {
+        if (node == null) {
+            return node;
+        }
+
+        if (value < node.getData()) {
+            node.setLeft(delete(node.getLeft(), value));
+        } else if (value > node.getData()) {
+            node.setRight(delete(node.getRight(), value));
+        } else {
+            if (node.getLeft() == null) {
+                return node.getRight();
+            } else if (node.getRight() == null) {
+                return node.getLeft();
+            }
+        }
+
+        return node;
+    }
+
     public void traverseInOrder() {
         if (root != null) {
             root.traverseInOrder();

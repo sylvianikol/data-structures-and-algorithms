@@ -15,16 +15,20 @@ public class Main {
         tree.insert(26);
         tree.insert(22);
         tree.insert(32);
+        tree.insert(17);
 
         tree.traverseInOrder();
 
-        Node node = tree.get(22);
-        System.out.println(node == null ? "Not found!" : node.getData());
+//        Node node = tree.get(22);
+//        System.out.println(node == null ? "Not found!" : node.getData());
+//
+//        int min = tree.min();
+//        System.out.println(min == Integer.MIN_VALUE ? "Tree is empty!" : min);
+//
+//        int max = tree.max();
+//        System.out.println(max == Integer.MAX_VALUE ? "Tree is empty" : max);
 
-        int min = tree.min();
-        System.out.println(min == Integer.MIN_VALUE ? "Tree is empty!" : min);
-
-        int max = tree.max();
-        System.out.println(max == Integer.MAX_VALUE ? "Tree is empty" : max);
+        tree.delete(17);
+        tree.traverseInOrder();
     }
 }
