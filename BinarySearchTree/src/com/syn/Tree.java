@@ -39,6 +39,9 @@ public class Tree {
             } else if (node.getRight() == null) {
                 return node.getLeft();
             }
+
+            node.setData(node.getRight().min());
+            node.setRight(delete(node.getRight(), node.getData()));
         }
 
         return node;

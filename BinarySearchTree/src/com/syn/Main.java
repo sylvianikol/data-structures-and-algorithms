@@ -28,7 +28,7 @@ public class Main {
 //        int max = tree.max();
 //        System.out.println(max == Integer.MAX_VALUE ? "Tree is empty" : max);
 
-        tree.delete(17);
+        tree.delete(25);
         tree.traverseInOrder();
     }
 }
