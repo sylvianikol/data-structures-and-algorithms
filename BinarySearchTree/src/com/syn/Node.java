@@ -77,6 +77,19 @@ public class Node {
         }
     }
 
+    public void traversePreOrder() {
+        // root -> left -> right
+        System.out.print(data + " ");
+
+        if (left != null) {
+            left.traversePreOrder();
+        }
+
+        if (right != null) {
+            right.traversePreOrder();
+        }
+    }
+
     public int getData() {
         return data;
     }

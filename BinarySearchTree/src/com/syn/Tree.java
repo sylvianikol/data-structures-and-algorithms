@@ -54,6 +54,13 @@ public class Tree {
         System.out.println();
     }
 
+    public void traversePreOrder() {
+        if (root != null) {
+            root.traversePreOrder();
+        }
+        System.out.println();
+    }
+
     public int min() {
         if (root == null) {
             return Integer.MIN_VALUE;

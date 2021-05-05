@@ -18,6 +18,7 @@ public class Main {
         tree.insert(17);
 
         tree.traverseInOrder();
+        tree.traversePreOrder();
 
 //        Node node = tree.get(22);
 //        System.out.println(node == null ? "Not found!" : node.getData());
@@ -28,7 +29,7 @@ public class Main {
 //        int max = tree.max();
 //        System.out.println(max == Integer.MAX_VALUE ? "Tree is empty" : max);
 
-        tree.delete(25);
-        tree.traverseInOrder();
+//        tree.delete(25);
+//        tree.traverseInOrder();
     }
 }
